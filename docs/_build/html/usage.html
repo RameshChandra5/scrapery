@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Guide &mdash; scrapery 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f7cdbf68"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Selected Functions Documentation" href="selected_functions.html" />
+    <link rel="prev" title="Welcome to Scrapery’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            scrapery
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#html-example">HTML Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#embedded-data">Embedded Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dom-navigation">DOM Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-utilities">Class Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resolve-relative-urls">Resolve Relative URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xml-example">XML Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json-example">JSON Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selected_functions.html">Selected Functions Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">scrapery</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage-guide">
+<h1>Usage Guide<a class="headerlink" href="#usage-guide" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Install the package using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>scrapery
+</pre></div>
+</div>
+<section id="html-example">
+<h3>HTML Example<a class="headerlink" href="#html-example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">html_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">    &lt;body&gt;</span>
+<span class="s2">        &lt;h1&gt;Welcome&lt;/h1&gt;</span>
+<span class="s2">        &lt;p&gt;Hello&lt;br&gt;World&lt;/p&gt;</span>
+<span class="s2">        &lt;a href=&quot;/about&quot;&gt;About Us&lt;/a&gt;</span>
+<span class="s2">        &lt;img src=&quot;/images/logo.png&quot;&gt;</span>
+<span class="s2">        &lt;table&gt;</span>
+<span class="s2">            &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;</span>
+<span class="s2">            &lt;tr&gt;&lt;td&gt;John&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">            &lt;tr&gt;&lt;td&gt;Jane&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">        &lt;/table&gt;</span>
+<span class="s2">    &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Parse HTML content</span>
+<span class="n">html_doc</span> <span class="o">=</span> <span class="n">parse_html</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+
+<span class="c1"># Pretty print HTML</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prettify</span><span class="p">(</span><span class="n">html_doc</span><span class="p">))</span>
+
+<span class="c1"># Get all table rows</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">select_all</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;table tr&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+
+<span class="c1"># Get first paragraph</span>
+<span class="n">paragraph</span> <span class="o">=</span> <span class="n">select_one</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Paragraph:&quot;</span><span class="p">,</span> <span class="n">selector_content</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
+
+<span class="c1"># CSS and XPath Selectors</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;h1&quot;</span><span class="p">))</span>        <span class="c1"># CSS</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;//h1&quot;</span><span class="p">))</span>      <span class="c1"># XPath</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;href&quot;</span><span class="p">))</span>  <span class="c1"># CSS attr</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;//a&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;href&quot;</span><span class="p">))</span>  <span class="c1"># XPath attr</span>
+
+<span class="c1"># Get specific table cells</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">))</span>          <span class="c1"># First &lt;td&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;//td[2]&quot;</span><span class="p">))</span>     <span class="c1"># Second &lt;td&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s2">&quot;//tr[3]/td[2]&quot;</span><span class="p">))</span>  <span class="c1"># Jane&#39;s age</span>
+
+<span class="c1"># Full text content</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">))</span>
+
+<span class="c1"># Root attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;lang&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="embedded-data">
+<h2>Embedded Data<a class="headerlink" href="#embedded-data" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">  &lt;script&gt;</span>
+<span class="s2">    window.__INITIAL_STATE__ = {</span>
+<span class="s2">      &quot;user&quot;: {&quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot;},</span>
+<span class="s2">      &quot;isLoggedIn&quot;: true</span>
+<span class="s2">    };</span>
+<span class="s2">  &lt;/script&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">get_embedded_json</span><span class="p">(</span><span class="n">page_source</span><span class="o">=</span><span class="n">html_content</span><span class="p">,</span> <span class="n">ld_json_type</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_with_ldjson</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">  &lt;head&gt;</span>
+<span class="s2">    &lt;script type=&quot;application/ld+json&quot;&gt;</span>
+<span class="s2">      {</span>
+<span class="s2">        &quot;@context&quot;: &quot;http://schema.org&quot;,</span>
+<span class="s2">        &quot;@type&quot;: &quot;Person&quot;,</span>
+<span class="s2">        &quot;name&quot;: &quot;Alice&quot;</span>
+<span class="s2">      }</span>
+<span class="s2">    &lt;/script&gt;</span>
+<span class="s2">  &lt;/head&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">ld_json</span> <span class="o">=</span> <span class="n">get_embedded_json</span><span class="p">(</span><span class="n">page_source</span><span class="o">=</span><span class="n">html_with_ldjson</span><span class="p">,</span> <span class="n">ld_json_type</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ld_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="dom-navigation">
+<h2>DOM Navigation<a class="headerlink" href="#dom-navigation" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_elem</span> <span class="o">=</span> <span class="n">select_one</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parent:&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="p">(</span><span class="n">p_elem</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Children:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">tag</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">children</span><span class="p">(</span><span class="n">p_elem</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Siblings:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">tag</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">siblings</span><span class="p">(</span><span class="n">p_elem</span><span class="p">)])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next sibling of &lt;p&gt;:&quot;</span><span class="p">,</span> <span class="n">next_sibling</span><span class="p">(</span><span class="n">p_elem</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+<span class="n">h1_elem</span> <span class="o">=</span> <span class="n">select_one</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;h1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Previous sibling of &lt;h1&gt;:&quot;</span><span class="p">,</span> <span class="n">next_sibling</span><span class="p">(</span><span class="n">h1_elem</span><span class="p">))</span>
+
+<span class="n">ancs</span> <span class="o">=</span> <span class="n">ancestors</span><span class="p">(</span><span class="n">p_elem</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ancestors:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">tag</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ancs</span><span class="p">])</span>
+<span class="n">desc</span> <span class="o">=</span> <span class="n">descendants</span><span class="p">(</span><span class="n">select_one</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;table&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descendants:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">tag</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">desc</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="class-utilities">
+<h2>Class Utilities<a class="headerlink" href="#class-utilities" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">div_html</span> <span class="o">=</span> <span class="s1">&#39;&lt;div class=&quot;card primary&quot;&gt;&lt;/div&gt;&#39;</span>
+<span class="n">div_elem</span> <span class="o">=</span> <span class="n">parse_html</span><span class="p">(</span><span class="n">div_html</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Has class &#39;card&#39;? -&gt;&quot;</span><span class="p">,</span> <span class="n">has_class</span><span class="p">(</span><span class="n">div_elem</span><span class="p">,</span> <span class="s2">&quot;card&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classes:&quot;</span><span class="p">,</span> <span class="n">get_classes</span><span class="p">(</span><span class="n">div_elem</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="resolve-relative-urls">
+<h2>Resolve Relative URLs<a class="headerlink" href="#resolve-relative-urls" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="s2">&quot;https://example.com&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolute_url</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="n">base</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolute_url</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;src&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="xml-example">
+<h2>XML Example<a class="headerlink" href="#xml-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xml_content</span> <span class="o">=</span> <span class="s2">&quot;&lt;root&gt;&lt;child&gt;Test&lt;/child&gt;&lt;/root&gt;&quot;</span>
+<span class="n">xml_doc</span> <span class="o">=</span> <span class="n">parse_xml</span><span class="p">(</span><span class="n">xml_content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prettify</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">))</span>
+
+<span class="n">all_elements</span> <span class="o">=</span> <span class="n">select_all</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;child&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_elements</span><span class="p">)</span>
+
+<span class="n">child</span> <span class="o">=</span> <span class="n">select_one</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;//child&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selector_content</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;child&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parent</span><span class="p">(</span><span class="n">child</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">children</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">xml_find</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;child&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xml_find_all</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;child&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">xml_xpath</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="s2">&quot;//child&quot;</span><span class="p">))</span>
+
+<span class="n">xslt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="s2">&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;</span>
+<span class="s2">    &lt;xsl:template match=&quot;/&quot;&gt;</span>
+<span class="s2">        &lt;html&gt;&lt;body&gt;&lt;xsl:value-of select=&quot;/root/child&quot;/&gt;&lt;/body&gt;&lt;/html&gt;</span>
+<span class="s2">    &lt;/xsl:template&gt;</span>
+<span class="s2">&lt;/xsl:stylesheet&gt;&quot;&quot;&quot;</span>
+
+<span class="n">transformed</span> <span class="o">=</span> <span class="n">xml_transform</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="n">xslt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prettify</span><span class="p">(</span><span class="n">transformed</span><span class="p">))</span>
+
+<span class="c1"># Validate (requires schema file)</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">xml_validate_xsd</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;schema.xsd&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>
+
+<span class="n">new_element</span> <span class="o">=</span> <span class="n">xml_create_element</span><span class="p">(</span><span class="s2">&quot;newTag&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;This is new&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<span class="n">xml_add_child</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">,</span> <span class="n">new_element</span><span class="p">)</span>
+<span class="n">xml_set_attr</span><span class="p">(</span><span class="n">new_element</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;456&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prettify</span><span class="p">(</span><span class="n">xml_doc</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="json-example">
+<h2>JSON Example<a class="headerlink" href="#json-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;user&quot;: {&quot;profile&quot;: {&quot;name&quot;: &quot;Alice&quot;}}}&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_content</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_content</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;profile&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_directory</span>
+
+<span class="n">create_directory</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">)</span>
+<span class="n">create_directory</span><span class="p">(</span><span class="s2">&quot;parent_folder/sub_folder&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">standardized_string</span>
+
+<span class="n">input_string</span> <span class="o">=</span> <span class="s2">&quot;&lt;html&gt;&lt;body&gt;  Hello </span><span class="se">\n</span><span class="s2">World!  </span><span class="se">\t</span><span class="s2">This is a test.  &lt;/body&gt;&lt;/html&gt;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">standardized_string</span><span class="p">(</span><span class="n">input_string</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_csv</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;URL&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tech&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_to_csv</span>
+
+<span class="n">list_data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]]</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="s1">&#39;output.csv&#39;</span>
+<span class="n">save_to_csv</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_to_xls</span>
+
+<span class="n">save_to_xls</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="s1">&#39;output.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_files</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">list_files</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_file_content</span>
+
+<span class="n">small_json</span> <span class="o">=</span> <span class="n">read_file_content</span><span class="p">(</span><span class="s2">&quot;small.json&quot;</span><span class="p">,</span> <span class="n">stream_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small_json</span><span class="p">)</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">read_file_content</span><span class="p">(</span><span class="s2">&quot;large.json&quot;</span><span class="p">,</span> <span class="n">stream_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">read_file_content</span><span class="p">(</span><span class="s2">&quot;large_text.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">500</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scrapery</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_file_content</span>
+
+<span class="n">save_file_content</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="n">save_file_content</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">})</span>
+<span class="n">save_file_content</span><span class="p">(</span><span class="s2">&quot;append.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Another line&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Scrapery’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="selected_functions.html" class="btn btn-neutral float-right" title="Selected Functions Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ramesh Chandra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
