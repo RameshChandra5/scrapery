@@ -6,10 +6,10 @@ Welcome to Scrapery's documentation!
    :caption: Contents:
 
    usage
-   selected_functions
 
 Indices and tables
 ==================
 
 * :ref:`modindex`
 * :ref:`search`
+
