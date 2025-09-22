@@ -1,12 +1,16 @@
 # 🕷️ scrapery
 
-![Free](https://img.shields.io/badge/License-Free-brightgreen)
-![PyPI Version](https://img.shields.io/pypi/v/scrapery)
-![Python Versions](https://img.shields.io/pypi/pyversions/scrapery)
-![Downloads](https://img.shields.io/pypi/dm/scrapery)
+
+[![PyPI Version](https://img.shields.io/pypi/v/scrapery)](https://pypi.org/project/scrapery/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/scrapery)](https://pypi.org/project/scrapery/)
+[![Downloads](https://img.shields.io/pypi/dm/scrapery)](https://pypi.org/project/scrapery/)
+![License](https://img.shields.io/badge/License-Free-brightgreen)
+[![Documentation Status](https://readthedocs.org/projects/scrapery/badge/?version=latest)](https://scrapery.readthedocs.io/en/latest/?badge=latest)
 
 A blazing fast, lightweight, and modern parsing library for **HTML, XML, and JSON**, designed for **web scraping** and **data extraction**.  
 It supports both **XPath** and **CSS** selectors, along with seamless **DOM navigation**, making parsing and extracting data straightforward and intuitive.
+
+📘 **Full Documentation**: [https://scrapery.readthedocs.io/en/latest/](https://scrapery.readthedocs.io/en/latest/)
 
 ---
 
