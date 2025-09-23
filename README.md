@@ -150,7 +150,7 @@ html_content = """
 </html>
 """
 
-json_data = get_embedded_json(page_source=html_content, ld_json_type=False)
+json_data = get_embedded_json(page_source=html_content, is_ld_json=False)
 print(json_data)
 
 # Output
@@ -175,7 +175,7 @@ html_with_ldjson = """
 </html>
 """
 
-ld_json = get_embedded_json(page_source=html_with_ldjson, ld_json_type=True)
+ld_json = get_embedded_json(page_source=html_with_ldjson, is_ld_json=True)
 print(ld_json)
 
 # Output
