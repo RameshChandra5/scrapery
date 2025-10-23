@@ -6,7 +6,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="scrapery",  # Package name
-    version="0.0.9",  # Current version
+    version="0.1.15",  # Current version
     author="Ramesh Chandra",
     author_email="rameshsofter@gmail.com",
     description="Scrapery: A fast, lightweight library to scrape HTML, XML, and JSON using XPath, CSS selectors, and intuitive DOM navigation.",
@@ -32,13 +32,16 @@ setup(
         "ujson>=5.8.0",
         "chardet>=5.2.0",
         "jmespath>=1.0.1",
-        "ftfy==6.3.1",
-        "ijson==3.4.0",
-        "pandas==2.3.2",
-        "tldextract==5.3.0",
+        "ftfy",
+        "ijson",
+        "pandas",
+        "tldextract",
         "openpyxl",
     ],
     keywords="web scraping, html parser, xml parser, json parser, lxml, ujson, data extraction, scraping tools",
     include_package_data=True,
     zip_safe=False,
+    project_urls={
+        "Documentation": "https://scrapery.readthedocs.io/en/latest/",
+    },
 )
