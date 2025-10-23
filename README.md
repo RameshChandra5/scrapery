@@ -10,7 +10,7 @@
 A blazing fast, lightweight, and modern parsing library for **HTML, XML, and JSON**, designed for **web scraping** and **data extraction**.  
 It supports both **XPath** and **CSS** selectors, along with seamless **DOM navigation**, making parsing and extracting data straightforward and intuitive.
 
-📘 **Full Documentation**: [https://scrapery.readthedocs.io/en/latest/](https://scrapery.readthedocs.io/en/latest/)
+📘 **Full Documentation**: [https://scrapery.readthedocs.io](https://scrapery.readthedocs.io)
 
 ---
 
@@ -150,7 +150,7 @@ html_content = """
 </html>
 """
 
-json_data = get_embedded_json(page_source=html_content, is_ld_json=False)
+json_data = embedded_json(page_source=html_content, start_keyword="window.__INITIAL_STATE__ =")
 print(json_data)
 
 # Output
@@ -175,7 +175,7 @@ html_with_ldjson = """
 </html>
 """
 
-ld_json = get_embedded_json(page_source=html_with_ldjson, is_ld_json=True)
+ld_json = embedded_json(page_source=html_with_ldjson, selector = "[type*='application/ld+json']")
 print(ld_json)
 
 # Output
