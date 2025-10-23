@@ -85,7 +85,7 @@ Embedded Data
     </html>
     """
 
-    json_data = get_embedded_json(page_source=html_content, is_ld_json=False)
+    json_data = embedded_json(page_source=html_content, start_keyword="window.__INITIAL_STATE__ =")
     print(json_data)
 
 .. code-block:: python
@@ -104,7 +104,7 @@ Embedded Data
     </html>
     """
 
-    ld_json = get_embedded_json(page_source=html_with_ldjson, is_ld_json=True)
+    ld_json = embedded_json(page_source=html_with_ldjson, selector = "[type*='application/ld+json']")
     print(ld_json)
 
 
