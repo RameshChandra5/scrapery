@@ -319,7 +319,7 @@ Save to sqlite Database
     save_to_db(data_list, headers)
 
     #Creates a SQLite database file named mydb.sqlite in the given folder (report) and adds a table called User.
-    save_to_db(data_list, headers, auto_data_type=False, db_file_path="report/mydb.sqlite", table_name="User")    
+    save_to_db(data_list, headers, auto_data_type=False, output_file_path="report/mydb.sqlite", table_name="User")    
 
 List Files in a Directory
 -------------------------
