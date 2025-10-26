@@ -222,9 +222,60 @@ Standardize a String
 .. code-block:: python
 
     from scrapery import standardized_string
+    # This function standardizes the input string by removing escape sequences like \n, \t, and \r, removing HTML tags, collapsing multiple spaces, and trimming leading/trailing spaces.
 
-    input_string = "<html><body>  Hello \nWorld!  \tThis is a test.  </body></html>"
-    print(standardized_string(input_string))
+    # Example 1: Standardize a string with newlines, tabs, and HTML tags
+    input_string_1 = "<html><body>  Hello \nWorld!  \tThis is a test.  </body></html>"
+    print("Standardized String 1:", standardized_string(input_string_1))
+
+    # Example 2: Input string with multiple spaces and line breaks
+    input_string_2 = "  This   is   a  \n\n   string   with  spaces and \t tabs.  "
+    print("Standardized String 2:", standardized_string(input_string_2))
+
+    # Example 3: Pass an empty string
+    input_string_3 = ""
+    print("Standardized String 3:", standardized_string(input_string_3))
+
+    # Example 4: Pass None (invalid input)
+    input_string_4 = None
+    print("Standardized String 4:", standardized_string(input_string_4))
+
+Replace a String
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    from scrapery import replace_content
+
+    text = "posting posting posting"
+
+    # Example 1: Replace all occurrences
+    result = replace_content(text, "posting", "UPDATED")
+    print(result)
+    # Output: "UPDATED UPDATED UPDATED"
+
+    # Example 2: Replace only the 2nd occurrence (position)
+    result = replace_content(text, "posting", "UPDATED", position=2)
+    print(result)
+    # Output: "posting UPDATED posting"
+
+    # Example 3: Case-insensitive replacement
+    text = "Posting POSTING posting"
+    result = replace_content(text, "posting", "edited", ignore_case=True, position=2)
+    print(result)
+    # Output: "Posting edited posting"
+
+    # Example 4: Limit number of replacements (count)
+    text = "apple apple apple"
+    result = replace_content(text, "apple", "orange", count=2)
+    print(result)
+    # Output: "orange orange apple"
+
+    # Example 5: Replace in a file
+
+    # example.txt contains: "error error error"
+    replace_content("example.txt", "error", "warning", ignore_case=True)
+    # The file now contains: "warning warning warning"
 
 Read CSV
 ^^^^^^^^
@@ -256,6 +307,19 @@ Save to Excel
     from scrapery import save_to_xls
 
     save_to_xls(list_data, headers, 'output.xlsx')
+
+Save to sqlite Database
+^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    from scrapery import save_to_db
+
+    #Creates a SQLite database file named data.sqlite in the current folder and adds a table called data.
+    save_to_db(data_list, headers)
+
+    #Creates a SQLite database file named mydb.sqlite in the given folder (report) and adds a table called User.
+    save_to_db(data_list, headers, auto_data_type=False, db_file_path="report/mydb.sqlite", table_name="User")    
 
 List Files in a Directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^
