@@ -203,8 +203,8 @@ JSON Example
     print(json_content(json_str, keys=["user", "profile", "name"], position="last"))
 
 
-Utilities
----------
+Useful Utilities
+----------------
 
 Create a Directory
 ------------------
@@ -217,7 +217,7 @@ Create a Directory
     create_directory("parent_folder/sub_folder")
 
 Standardize a String
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 .. code-block:: python
 
@@ -241,7 +241,7 @@ Standardize a String
     print("Standardized String 4:", standardized_string(input_string_4))
 
 Replace a String
-^^^^^^^^^^^^^^^^^^^^
+----------------
 
 .. code-block:: python
 
@@ -278,7 +278,7 @@ Replace a String
     # The file now contains: "warning warning warning"
 
 Read CSV
-^^^^^^^^
+-------
 
 .. code-block:: python
 
@@ -288,7 +288,7 @@ Read CSV
     print(result)
 
 Save to CSV
-^^^^^^^^^^^
+----------
 
 .. code-block:: python
 
@@ -300,7 +300,7 @@ Save to CSV
     save_to_csv(list_data, headers, output_file_path)
 
 Save to Excel
-^^^^^^^^^^^^^
+-------------
 
 .. code-block:: python
 
@@ -309,7 +309,7 @@ Save to Excel
     save_to_xls(list_data, headers, 'output.xlsx')
 
 Save to sqlite Database
-^^^^^^^^^^^^^
+-----------------------
 
 .. code-block:: python
 
@@ -322,7 +322,7 @@ Save to sqlite Database
     save_to_db(data_list, headers, auto_data_type=False, db_file_path="report/mydb.sqlite", table_name="User")    
 
 List Files in a Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 .. code-block:: python
 
@@ -332,7 +332,7 @@ List Files in a Directory
     print(files)
 
 Read File Content
-^^^^^^^^^^^^^^^^^
+-----------------
 
 .. code-block:: python
 
@@ -349,7 +349,7 @@ Read File Content
     print(text[:500])
 
 Save to File
-^^^^^^^^^^^^
+------------
 
 .. code-block:: python
 
@@ -358,4 +358,3 @@ Save to File
     save_file_content("output.txt", "Hello World")
     save_file_content("data.json", {"name": "Alice"})
     save_file_content("append.txt", "\nAnother line", mode="a")
-
