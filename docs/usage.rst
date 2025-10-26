@@ -207,7 +207,7 @@ Utilities
 ---------
 
 Create a Directory
-^^^^^^^^^^^^^^^^^^
+------------------
 
 .. code-block:: python
 
@@ -358,3 +358,4 @@ Save to File
     save_file_content("output.txt", "Hello World")
     save_file_content("data.json", {"name": "Alice"})
     save_file_content("append.txt", "\nAnother line", mode="a")
+
