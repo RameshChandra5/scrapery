@@ -24,7 +24,7 @@ It supports both **XPath** and **CSS** selectors, along with seamless **DOM navi
 - 📦 **Multi-Format Support** – Parse **HTML, XML, and JSON** in a single library
 - ⚙️ **Versatile File Management** – Create directories, list files, and handle paths effortlessly
 - 📝 **Smart String Normalization** – Clean text by fixing encodings, removing HTML tags, and standardizing whitespace
-- 🔍 **Flexible CSV & Excel Handling** – Read, filter, save, and append data
+- 🔍 **Flexible CSV, Excel & Database Handling** – Read, filter, save, and append data
 - 🔄 **Efficient JSON Streaming & Reading** – Stream large JSON files or load fully with encoding detection
 - 💾 **Robust File Reading & Writing** – Auto-detect encoding, support large files with mmap, and save JSON or plain text cleanly
 - 🌐 **URL & Domain Utilities** – Extract base domains accurately using industry-standard parsing
@@ -338,7 +338,6 @@ create_directory("parent_folder/sub_folder")
 from scrapery import standardized_string
 # This function standardizes the input string by removing escape sequences like \n, \t, and \r, removing HTML tags, collapsing multiple spaces, and trimming leading/trailing spaces.
 
-
 # Example 1: Standardize a string with newlines, tabs, and HTML tags
 input_string_1 = "<html><body>  Hello \nWorld!  \tThis is a test.  </body></html>"
 print("Standardized String 1:", standardized_string(input_string_1))
@@ -356,7 +355,42 @@ input_string_4 = None
 print("Standardized String 4:", standardized_string(input_string_4))
 
 ================================================================
-3. Read CSV
+3. Replace a String
+
+from scrapery import replace_content
+
+text = "posting posting posting"
+
+# Example 1: Replace all occurrences
+result = replace_content(text, "posting", "UPDATED")
+print(result)
+# Output: "UPDATED UPDATED UPDATED"
+
+# Example 2: Replace only the 2nd occurrence (position)
+result = replace_content(text, "posting", "UPDATED", position=2)
+print(result)
+# Output: "posting UPDATED posting"
+
+# Example 3: Case-insensitive replacement
+text = "Posting POSTING posting"
+result = replace_content(text, "posting", "edited", ignore_case=True, position=2)
+print(result)
+# Output: "Posting edited posting"
+
+# Example 4: Limit number of replacements (count)
+text = "apple apple apple"
+result = replace_content(text, "apple", "orange", count=2)
+print(result)
+# Output: "orange orange apple"
+
+# Example 5: Replace in a file
+
+# example.txt contains: "error error error"
+replace_content("example.txt", "error", "warning", ignore_case=True)
+# The file now contains: "warning warning warning"
+
+================================================================
+4. Read CSV
 
 from scrapery import read_csv
 
@@ -380,7 +414,7 @@ Result
 ['https://tech1.com', 'https://tech2.com']
 
 ================================================================
-4. Save to CSV
+5. Save to CSV
 
 from scrapery import save_to_csv
 
@@ -410,14 +444,25 @@ ID  Name    Age
 3   Charlie 25
 
 ================================================================
-5. Save to Excel file 
+6. Save to Excel file 
 
 from scrapery import save_to_xls
 
 save_to_xls(data_list, headers, output_file_path)
 
 ================================================================
-6. List files in a directory
+7. Save to sqlite Database
+
+from scrapery import save_to_db
+
+#Creates a SQLite database file named data.sqlite in the current folder and adds a table called data.
+save_to_db(data_list, headers)
+
+#Creates a SQLite database file named mydb.sqlite in the given folder (report) and adds a table called User.
+save_to_db(data_list, headers, auto_data_type=False, db_file_path="report/mydb.sqlite", table_name="User")
+
+================================================================
+8. List files in a directory
 
 from scrapery import list_files
 
@@ -425,7 +470,7 @@ files = list_files(directory=output_dir, extension="csv")
 print("CSV files in output directory:", files)
 
 ================================================================
-7. Read back file content
+9. Read back file content
 
 from scrapery import read_file_content
 
@@ -455,7 +500,7 @@ print("\nSmall text file content (with encoding detection):")
 print(text_content)
 
 ================================================================
-8. Save to file
+10. Save to file
 
 from scrapery import save_file_content
 
