@@ -308,7 +308,7 @@ Save to Excel
 
     save_to_xls(list_data, headers, 'output.xlsx')
 
-Save to sqlite Database
+Save to Sqlite Database
 -----------------------
 
 .. code-block:: python
@@ -358,3 +358,42 @@ Save to File
     save_file_content("output.txt", "Hello World")
     save_file_content("data.json", {"name": "Alice"})
     save_file_content("append.txt", "\nAnother line", mode="a")
+
+Save to File
+------------
+
+.. code-block:: python
+
+    # Send mail
+    from scrapery import send_email
+
+    smtp_server = "smtp.gmail.com"  # For Gmail, change if using other services
+    sender_email = "your_email@gmail.com"  # Replace with the sender's email address
+    sender_passwd = "your_email_password"  # Replace with the sender's email password (consider using OAuth for security)
+    to_addrs = ["recipient1@example.com", "recipient2@example.com"]  # List of recipient email addresses
+    subject = "Test Email with Attachments"
+    smtp_port = 465  # SMTP port for Gmail SSL
+    text_body = "Hello, this is a test email."
+    html_body = "<html><body><h1>Hello, this is a <i>test</i> email.</h1></body></html>"
+    cc_addrs = ["cc_recipient@example.com"]  # Optional: list of CC recipients
+    bcc_addrs = ["bcc_recipient@example.com"]  # Optional: list of BCC recipients
+    attachments = [Path("/path/to/file1.pdf"), Path("/path/to/image.png")]  # Optional: list of file paths to attach
+
+    # Call the send_email function
+    success, message = send_email(
+        smtp_server=smtp_server,
+        sender_email=sender_email,
+        sender_passwd=sender_passwd,
+        to_addrs=to_addrs,
+        subject=subject,
+        smtp_port=smtp_port,
+        text_body=text_body,
+        html_body=html_body,
+        cc_addrs=cc_addrs,
+        bcc_addrs=bcc_addrs,
+        attachments=attachments
+    )
+
+    # Print the result
+    print(f"Success: {success}")
+    print(f"Message: {message}")
