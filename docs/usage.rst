@@ -359,12 +359,11 @@ Save to File
     save_file_content("data.json", {"name": "Alice"})
     save_file_content("append.txt", "\nAnother line", mode="a")
 
-Save to File
+Send mail
 ------------
 
 .. code-block:: python
 
-    # Send mail
     from scrapery import send_email
 
     smtp_server = "smtp.gmail.com"  # For Gmail, change if using other services
